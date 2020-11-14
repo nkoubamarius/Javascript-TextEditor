@@ -9,7 +9,7 @@
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
  */
-function updateText(){
+const updateText=()=>{
     let textInput=document.getElementById("text-input").value;
     document.getElementById("text-output").innerText = textInput;
   }
@@ -21,7 +21,7 @@ function updateText(){
    * HINT: Use the classList property
    * HINT: Toggle .active class for the button
    */
-  function makeBold(elem){
+  const makeBold=(elem)=>{
     elem.classList.toggle('active');
     document.getElementById('text-output').classList.toggle('bold');
 
@@ -30,7 +30,7 @@ function updateText(){
   /**
    * Toggle the italic class for the output text
    */
-  function makeItalic(elem){
+  const makeItalic=(elem)=>{
     elem.classList.toggle('active');
     document.getElementById('text-output').classList.toggle('italic');
   }
@@ -41,7 +41,7 @@ function updateText(){
    * HINT: Use the classList property
    * HINT: Use contains, remove, and add functions
    */
-  function makeUnderline(elem){
+  const makeUnderline=(elem)=>{
     elem.classList.toggle('active');
 
     let formattedText=document.getElementById('text-output');
@@ -58,13 +58,18 @@ function updateText(){
    * HINT: Use the style property of the element
    * HINT: Make sure to untoggle the active state for all other align buttons
    */
-  function alignText(elem, alignType){
-    elem.classList.toggle('active');
+  const alignText=(elem, alignType)=>{
+    //elem.classList.toggle('active');
+
     document.getElementById('text-output').style.textAlign=alignType;
 
     let buttonsList=document.getElementsByClassName('align');
-    for(let i=0; i<buttonsList.length; i++){
-      buttonsList[i].classList.remove('active');
+    for(let button of buttonsList){
+      button.classList.remove('active');
     }
-    elem.classList.add('active');
+    
+    // for(let i=0; i<buttonsList.length; i++){
+    //   buttonsList[i].classList.remove('active');
+    // }
+    elem.classList.toggle('active');
   }
